@@ -3,32 +3,36 @@ const calculatorDisplay = document.querySelector("[data-js=calculator-display]")
 
 let calculatorOperation = [];
 
-const putInfoInCalculatorOperation = info => calculatorOperation.push(info);
+const createCalculatorOperation = () => calculatorOperation.join("");
+
+const clearCalculatorOperation = () => calculatorOperation = [];
+
+const clearCalculatorDisplay = () => calculatorDisplay.textContent = "";
 
 const calculatorDisplayInfo = info => calculatorDisplay.textContent += info;
 
-const clearCalculatorDisplay = () => calculatorDisplay.textContent = "";
+const putInfoInCalculatorOperation = info => calculatorOperation.push(info);
 
 const deleteLastInfoInOperation = () => {
   calculatorOperation.pop();
 
-  const operation = calculatorOperation.join("");
+  const operation = createCalculatorOperation();
   
   clearCalculatorDisplay();
   calculatorDisplayInfo(operation);
-}
+};
 
 const startCalculator = key => {
   if(key === "="){
-    const operation = calculatorOperation.join("");
-    const result = eval(operation);
+    const operation = createCalculatorOperation();
+    const result = eval(operation).toString();
 
-    calculatorOperation = [];
-
+    clearCalculatorOperation();
     clearCalculatorDisplay();
     calculatorDisplayInfo(result);
     putInfoInCalculatorOperation(result);
   } else if(key === "C"){
+    clearCalculatorOperation();
     clearCalculatorDisplay();
   } else if(key === "CE"){
     deleteLastInfoInOperation();
@@ -41,7 +45,7 @@ const startCalculator = key => {
   } else{
     putInfoInCalculatorOperation(key);
     calculatorDisplayInfo(key);
-  }
+  };
 };
 
 calculatorKeys.addEventListener("click", e => {
