@@ -3,27 +3,44 @@ const calculatorDisplay = document.querySelector("[data-js=calculator-display]")
 
 let calculatorOperation = [];
 
+const putInfoInCalculatorOperation = info => calculatorOperation.push(info);
+
+const calculatorDisplayInfo = info => calculatorDisplay.textContent += info;
+
+const clearCalculatorDisplay = () => calculatorDisplay.textContent = "";
+
+const deleteLastInfoInOperation = () => {
+  calculatorOperation.pop();
+
+  const operation = calculatorOperation.join("");
+  
+  clearCalculatorDisplay();
+  calculatorDisplayInfo(operation);
+}
+
 const startCalculator = key => {
   if(key === "="){
     const operation = calculatorOperation.join("");
     const result = eval(operation);
-    calculatorDisplay.textContent = "";
-    calculatorDisplay.textContent = result;
-    calculatorOperation = [result];
-  } else if(key === "C"){
+
     calculatorOperation = [];
-    calculatorDisplay.textContent = "";
+
+    clearCalculatorDisplay();
+    calculatorDisplayInfo(result);
+    putInfoInCalculatorOperation(result);
+  } else if(key === "C"){
+    clearCalculatorDisplay();
   } else if(key === "CE"){
-    calculatorOperation.pop();
-    calculatorDisplay.textContent = "";
-    calculatorDisplay.textContent = calculatorOperation.join("");  
+    deleteLastInfoInOperation();
   } else if(key === "x"){
-    calculatorOperation.push("*");
+    putInfoInCalculatorOperation("*");
+    calculatorDisplayInfo("x");
   } else if(key === "÷"){
-    calculatorOperation.push("/");
+    putInfoInCalculatorOperation("/");
+    calculatorDisplayInfo("÷");
   } else{
-    calculatorOperation.push(key);
-    calculatorDisplay.textContent += key;
+    putInfoInCalculatorOperation(key);
+    calculatorDisplayInfo(key);
   }
 };
 
