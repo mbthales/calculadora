@@ -1,51 +1,59 @@
 const calculatorKeys = document.querySelector("[data-js=calculator-keys]");
 const calculatorDisplay = document.querySelector("[data-js=calculator-display]");
 
+const calculatorSpecialOperators = {
+  "=": () => {
+    const operationResult = eval(buildOperation()).toString();
+
+    clearOperation("all");
+    putInfoInCalculatorOperation(operationResult);
+    showInfoInCalculatorDisplay(operationResult);
+  },
+  "C": () => {
+    clearOperation("all");
+  },
+  "CE": () => {
+    clearOperation("lastInfo");
+  }
+};
+
 let calculatorOperation = [];
 
-const createCalculatorOperation = () => calculatorOperation.join("");
+const buildOperation = () => calculatorOperation.join("");
 
-const clearCalculatorOperation = () => calculatorOperation = [];
+const putInfoInCalculatorOperation = info => {
+  if(info === "x") {
+    calculatorOperation.push("*");
+  } else if(info === "÷") {
+    calculatorOperation.push("/");
+  } else {
+    calculatorOperation.push(info);
+  };
+};
 
-const clearCalculatorDisplay = () => calculatorDisplay.textContent = "";
+const showInfoInCalculatorDisplay = info => calculatorDisplay.textContent += info;
 
-const calculatorDisplayInfo = info => calculatorDisplay.textContent += info;
+const clearOperation = allOrLastInfo => {
+  calculatorDisplay.textContent = "";
 
-const putInfoInCalculatorOperation = info => calculatorOperation.push(info);
-
-const deleteLastInfoInOperation = () => {
-  calculatorOperation.pop();
-
-  const operation = createCalculatorOperation();
-  
-  clearCalculatorDisplay();
-  calculatorDisplayInfo(operation);
+  if(allOrLastInfo === "all"){
+    calculatorOperation = [];
+  } else if(allOrLastInfo === "lastInfo"){
+    calculatorOperation.pop();
+    
+    showInfoInCalculatorDisplay(buildOperation());
+  };
 };
 
 const startCalculator = key => {
-  if(key === "="){
-    const operation = createCalculatorOperation();
-    const result = eval(operation).toString();
+  const checkIfKeyIsSpecialOperator = key === "=" || key === "C" || key === "CE";
 
-    clearCalculatorOperation();
-    clearCalculatorDisplay();
-    calculatorDisplayInfo(result);
-    putInfoInCalculatorOperation(result);
-  } else if(key === "C"){
-    clearCalculatorOperation();
-    clearCalculatorDisplay();
-  } else if(key === "CE"){
-    deleteLastInfoInOperation();
-  } else if(key === "x"){
-    putInfoInCalculatorOperation("*");
-    calculatorDisplayInfo("x");
-  } else if(key === "÷"){
-    putInfoInCalculatorOperation("/");
-    calculatorDisplayInfo("÷");
+  if(checkIfKeyIsSpecialOperator) {
+    calculatorSpecialOperators[key]();
   } else{
     putInfoInCalculatorOperation(key);
-    calculatorDisplayInfo(key);
-  };
+    showInfoInCalculatorDisplay(key);
+  }
 };
 
 calculatorKeys.addEventListener("click", e => {
