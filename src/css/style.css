@@ -1,116 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
-
   line-height: 1.5;
 }
 
 html,
-body{
+body {
   height: 100%;
 }
 
-body{
+body {
   display: grid;
-  grid: 1fr 8fr / 1fr;
+  grid: 1fr 8fr/1fr;
   font-size: 20px;
-  background-color: #F7F7FF;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 50px;
 }
-
-h1{
+header h1 {
+  color: #171717;
   font-size: 2.5rem;
-  color:#171717;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 main {
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
   color: #171717;
 }
 
-.key {
-  width: 40px;
-  height: 40px;
+.calculator-display {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px;
-  
-  font-size: 1.2rem;
-  background-color:#C49991;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.key:hover{
-  box-shadow: 2px 3px 1px 2px #279AF1;
-}
-
-.row{
-  display: flex;
-}
-
-.calculator-display{
   height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 40px;
-
-  background-color: #C49991;
   border-radius: 3px;
+  background-color: #C49991;
   font-size: 1.5rem;
 }
 
-
-@media (min-width: 700px){
-  h1{
-    font-size: 3.5rem;
-  }
-
-  .calculator-display{
-    height: 70px;
-    font-size: 1.8rem;
-  }
-
-  .key{
-    font-size: 1.5rem;
-    margin: 8px;
-    width: 60px;
-    height: 60px;
-  }
+.row {
+  display: flex;
 }
 
-@media (min-width: 2000px){
-  h1{
-    font-size: 6rem;
-  }
-  
-  .calculator-display{
-    height: 100px;
-    font-size: 2.1rem;
-  }
-
-  .key{
-    font-size: 1.8rem;
-    margin: 10px;
-    width: 90px;
-    height: 90px;
-  }
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  background-color: #C49991;
+  cursor: pointer;
 }
+.key:hover {
+  box-shadow: 2px 3px 1px 2px #279AF1;
+}
+
+/*# sourceMappingURL=style.css.map */
