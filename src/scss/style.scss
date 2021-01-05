@@ -4,6 +4,9 @@ $primary-color: #C49991;
 $secondary-color: #279AF1;
 $terciary-color: #171717;
 
+$breakpoint-tablet: 700px;
+$breakpoint-4k: 2000px;
+
 $font-name:'Lato', sans-serif;
 
 @mixin centralize{
@@ -17,7 +20,6 @@ $font-name:'Lato', sans-serif;
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  vertical-align: baseline;
 
   line-height: 1.5;
 }
@@ -40,7 +42,7 @@ header {
 
   h1{
     color: $terciary-color;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: $font-name;
   }
 }
@@ -67,12 +69,10 @@ main {
 
 .key {
   @include centralize();
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 5px;
   border-radius: 3px;
-  
-  font-size: 1.2rem;
   background-color: $primary-color;
   
   cursor: pointer;
@@ -81,3 +81,46 @@ main {
     box-shadow: 2px 3px 1px 2px $secondary-color;
   }
 }
+
+@media (min-width: $breakpoint-tablet){
+  header{
+    padding: 70px;
+
+    h1{
+      font-size: 5rem;
+    }
+  }
+
+  .calculator-display{
+    height: 70px;
+  }
+
+  .key{
+    font-size: 2rem;
+    width: 70px;
+    height: 70px;
+    margin: 6px;
+  }
+}
+
+@media (min-width: $breakpoint-4k){
+  header{
+    padding: 90px;
+
+    h1{
+      font-size: 7rem;
+    }
+  }
+
+  .calculator-display{
+    height: 90px;
+  }
+
+  .key{
+    font-size: 3rem;
+    width: 90px;
+    height: 90px;
+    margin: 7px;
+  }
+}
+

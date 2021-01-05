@@ -4,7 +4,6 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  vertical-align: baseline;
   line-height: 1.5;
 }
 
@@ -28,7 +27,7 @@ header {
 }
 header h1 {
   color: #171717;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-family: "Lato", sans-serif;
 }
 
@@ -58,16 +57,54 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 5px;
   border-radius: 3px;
-  font-size: 1.2rem;
   background-color: #C49991;
   cursor: pointer;
 }
 .key:hover {
   box-shadow: 2px 3px 1px 2px #279AF1;
+}
+
+@media (min-width: 700px) {
+  header {
+    padding: 70px;
+  }
+  header h1 {
+    font-size: 5rem;
+  }
+
+  .calculator-display {
+    height: 70px;
+  }
+
+  .key {
+    font-size: 2rem;
+    width: 70px;
+    height: 70px;
+    margin: 6px;
+  }
+}
+@media (min-width: 2000px) {
+  header {
+    padding: 90px;
+  }
+  header h1 {
+    font-size: 7rem;
+  }
+
+  .calculator-display {
+    height: 90px;
+  }
+
+  .key {
+    font-size: 3rem;
+    width: 90px;
+    height: 90px;
+    margin: 7px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
