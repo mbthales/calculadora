@@ -8,40 +8,40 @@
 </head>
 <body>
   <header>
-    <h1>Calculator</h1>
+    <h1 tabindex="0">Calculator</h1>
   </header>
   <main>
     <div class="calculator">
-      <div class="calculator-display" data-js="calculator-display"></div>
+      <p class="calculator-display" data-js="calculator-display"/>
       <div class="calculator-keys" data-js="calculator-keys">
         <div class="row">
-          <div class="key" data-js="key">7</div>
-          <div class="key" data-js="key">8</div>
-          <div class="key" data-js="key">9</div>
-          <div class="key" data-js="key">C</div>
-          <div class="key" data-js="key">CE</div>
+          <button class="key" data-js="key"type="button">7</button>
+          <button class="key" data-js="key"type="button">8</button>
+          <button class="key" data-js="key"type="button">9</button>
+          <button class="key" data-js="key"type="button" aria-label="Clear All Input">C</button>
+          <button class="key" data-js="key"type="button" aria-label="Clear Last Input">CE</button>
         </div>
         <div class="row">
-          <div class="key" data-js="key">4</div>
-          <div class="key" data-js="key">5</div>
-          <div class="key" data-js="key">6</div>
-          <div class="key" data-js="key">x</div>
+          <button class="key" data-js="key"type="button">4</button>
+          <button class="key" data-js="key"type="button">5</button>
+          <button class="key" data-js="key"type="button">6</button>
+          <button class="key" data-js="key"type="button" aria-label="Multiply">x</button>
         </div>
         <div class="row">
-          <div class="key" data-js="key">1</div>
-          <div class="key" data-js="key">2</div>
-          <div class="key" data-js="key">3</div>
-          <div class="key" data-js="key">÷</div>
+          <button class="key" data-js="key"type="button">1</button>
+          <button class="key" data-js="key"type="button">2</button>
+          <button class="key" data-js="key"type="button">3</button>
+          <button class="key" data-js="key"type="button">÷</button>
         </div>
         <div class="row">
-          <div class="key" data-js="key">0</div>
-          <div class="key" data-js="key">=</div>
-          <div class="key" data-js="key">+</div>
-          <div class="key" data-js="key">-</div>
+          <button class="key" data-js="key"type="button">0</button>
+          <button class="key" data-js="key"type="button">=</button>
+          <button class="key" data-js="key"type="button">+</button>
+          <button class="key" data-js="key"type="button" aria-label="Minus">-</button>
         </div>
-      </div>
+      </div> 
     </div>
   </main>
   <script src="./src/js/main.js"></script>
 </body>
-</html>
+</html> 

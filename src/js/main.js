@@ -8,6 +8,7 @@ const calculatorSpecialOperators = {
     clearOperation("all");
     putInfoInCalculatorOperation(operationResult);
     showInfoInCalculatorDisplay(operationResult);
+    readTheResultOfOperation(operationResult);
   },
   "C": () => {
     clearOperation("all");
@@ -62,3 +63,21 @@ calculatorKeys.addEventListener("click", e => {
 
   if(key.getAttribute("data-js") === "key") startCalculator(keyValue);
 });
+
+const readTheResultOfOperation = result => {
+  const body = document.body;
+  const id = `speak ${Date.now}`;
+  const template = `
+  <div id="${id}" class="sr-only" aria-live="polite">
+  </div>
+  `;
+  body.innerHTML += template;
+
+  setTimeout(() => {
+    document.getElementById(id).innerHTML = `Result is ${result}`;
+  }, 100);
+
+  setTimeout(() => {
+      body.removeChild(document.getElementById(id));
+  }, 1000);
+}
