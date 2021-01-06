@@ -65,19 +65,13 @@ calculatorKeys.addEventListener("click", e => {
 });
 
 const readTheResultOfOperation = result => {
-  const body = document.body;
-  const id = `speak ${Date.now}`;
-  const template = `
-  <div id="${id}" class="sr-only" aria-live="polite">
-  </div>
-  `;
-  body.innerHTML += template;
-
+  const container = document.querySelector("[data-js=screen-read-only]");
+  
   setTimeout(() => {
-    document.getElementById(id).innerHTML = `Result is ${result}`;
+    container.textContent = `Result is ${result}`;
   }, 100);
 
   setTimeout(() => {
-      body.removeChild(document.getElementById(id));
+      container.textContent = "";
   }, 1000);
 }
