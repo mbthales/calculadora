@@ -78,7 +78,7 @@ const readTheOperationResult = result => {
 
 calculatorKeys.addEventListener("click", e => {
   const key = e.target;
-  const keyValue = e.target.textContent;
+  const keyValue = key.textContent;
 
   if(key.getAttribute("data-js") === "key") startCalculator(keyValue);
 });
