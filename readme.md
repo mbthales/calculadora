@@ -7,11 +7,12 @@ Download or clone the repo and open the HTML file in your browser or just click 
 ## Tech
 The following tools were used in the construction of the project.
 - JavaScript
-- [SASS](https://sass-lang.com/)
 - HTML
 - CSS
+- [SASS](https://sass-lang.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [NVDA (screen reader)](https://www.nvaccess.org/)
+- [Coolors](https://coolors.co/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
