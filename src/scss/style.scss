@@ -36,6 +36,7 @@ body{
 body{
   display: grid;
   grid: 1fr 8fr / 1fr;
+
   font-size: 20px;
   font-family: $font-name;
 }
@@ -62,8 +63,8 @@ main {
   height: 50px;
   margin-bottom: 40px;
   border-radius: 3px;
-
   background-color: $primary-color;
+
   font-size: 1.5rem;
 }
 
@@ -90,6 +91,7 @@ main {
   position: absolute;
   width: 1px;
   height: 1px;
+  
   overflow: hidden;
 }
 
@@ -107,10 +109,11 @@ main {
   }
 
   .key{
-    font-size: 2rem;
     width: 70px;
     height: 70px;
     margin: 6px;
+
+    font-size: 2rem;
   }
 }
 
@@ -128,10 +131,11 @@ main {
   }
 
   .key{
-    font-size: 3rem;
     width: 90px;
     height: 90px;
     margin: 7px;
+
+    font-size: 3rem;
   }
 }
 
