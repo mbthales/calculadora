@@ -4,90 +4,86 @@ $primary-color: #C49991;
 $secondary-color: #279AF1;
 $terciary-color: #171717;
 
-$breakpoint-tablet: 700px;
-$breakpoint-4k: 2000px;
-
-$font-name:'Lato', sans-serif;
-
-@mixin centralize{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+$font:'Lato', sans-serif;
 
 * {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  outline-color: $secondary-color;
 
   line-height: 1.5;
-
-  &:focus{
-    outline-color: $secondary-color;
-  }
 }
 
 html,
-body{
+body {
   height: 100%;
+}
+
+html{
+  font-size: 20px;
 }
 
 body{
   display: grid;
-  grid: 1fr 8fr / 1fr;
+  grid: 4fr 8fr / 1fr;
 
-  font-size: 20px;
-  font-family: $font-name;
-}
-
-header {
-  @include centralize();
-  padding: 50px;
-
-  h1{
-    color: $terciary-color;
-    font-size: 3rem;
-    font-family: $font-name;
-  }
-}
-
-main {
-  @include centralize();
-
+  font-family: $font;
   color: $terciary-color;
 }
 
-.calculator-display{
-  @include centralize();
-  height: 50px;
-  margin-bottom: 40px;
-  border-radius: 3px;
-  background-color: $primary-color;
+header,
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  font-size: 1.5rem;
+header {
+  font-size: 1.8rem;
+}
+
+main {
+  font-size: 1.6rem;
+}
+
+.calculator-display,
+.key{
+  border-radius: 3px;
+}
+
+.calculator-display{
+  height: 50px;
+  background-color: $primary-color;
+  margin-bottom: 30px;
+  line-height: 50px;
 }
 
 .row{
-  display: flex;
+  margin-bottom: 10px;
 }
 
-.key {
-  @include centralize();
-  width: 50px;
+.key{
   height: 50px;
-  margin: 5px;
-  border-radius: 3px;
+  width: 50px;
   background-color: $primary-color;
-  
+
+  font-family: $font;
+  font-size: 1.2rem;
+
   cursor: pointer;
 
+  &:nth-child(n + 2){
+    margin-left: 5px;
+  }
+
   &:hover{
-    box-shadow: 2px 3px 1px 2px $secondary-color;
+    box-shadow: 4px 4px 0px 0px $secondary-color;
   }
 }
 
-.sr-only {
+.sr-only{
   position: absolute;
   width: 1px;
   height: 1px;
@@ -95,47 +91,34 @@ main {
   overflow: hidden;
 }
 
-@media (min-width: $breakpoint-tablet){
-  header{
-    padding: 70px;
-
-    h1{
-      font-size: 5rem;
-    }
+@media (min-width: 768px){
+  html{
+    font-size: 19px;
   }
 
   .calculator-display{
-    height: 70px;
+    height: 60px;
+    line-height: 60px;
   }
 
   .key{
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (min-width: 1024px){
+  html{
+    font-size: 18px;
+  }
+
+  .calculator-display{
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .key{
+    height: 70px;
     width: 70px;
-    height: 70px;
-    margin: 6px;
-
-    font-size: 2rem;
   }
 }
-
-@media (min-width: $breakpoint-4k){
-  header{
-    padding: 90px;
-
-    h1{
-      font-size: 7rem;
-    }
-  }
-
-  .calculator-display{
-    height: 90px;
-  }
-
-  .key{
-    width: 90px;
-    height: 90px;
-    margin: 7px;
-
-    font-size: 3rem;
-  }
-}
-

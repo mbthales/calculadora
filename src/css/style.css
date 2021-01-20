@@ -4,10 +4,8 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  line-height: 1.5;
-}
-*:focus {
   outline-color: #279AF1;
+  line-height: 1.5;
 }
 
 html,
@@ -15,60 +13,61 @@ body {
   height: 100%;
 }
 
+html {
+  font-size: 20px;
+}
+
 body {
   display: grid;
-  grid: 1fr 8fr/1fr;
-  font-size: 20px;
+  grid: 4fr 8fr/1fr;
   font-family: "Lato", sans-serif;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-}
-header h1 {
   color: #171717;
-  font-size: 3rem;
-  font-family: "Lato", sans-serif;
 }
 
+header,
 main {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #171717;
+}
+
+header {
+  font-size: 1.8rem;
+}
+
+main {
+  font-size: 1.6rem;
+}
+
+.calculator-display,
+.key {
+  border-radius: 3px;
 }
 
 .calculator-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 50px;
-  margin-bottom: 40px;
-  border-radius: 3px;
   background-color: #C49991;
-  font-size: 1.5rem;
+  margin-bottom: 30px;
+  line-height: 50px;
 }
 
 .row {
-  display: flex;
+  margin-bottom: 10px;
 }
 
 .key {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
   height: 50px;
-  margin: 5px;
-  border-radius: 3px;
+  width: 50px;
   background-color: #C49991;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
   cursor: pointer;
 }
+.key:nth-child(n+2) {
+  margin-left: 5px;
+}
 .key:hover {
-  box-shadow: 2px 3px 1px 2px #279AF1;
+  box-shadow: 4px 4px 0px 0px #279AF1;
 }
 
 .sr-only {
@@ -78,42 +77,34 @@ main {
   overflow: hidden;
 }
 
-@media (min-width: 700px) {
-  header {
-    padding: 70px;
-  }
-  header h1 {
-    font-size: 5rem;
+@media (min-width: 768px) {
+  html {
+    font-size: 19px;
   }
 
   .calculator-display {
-    height: 70px;
+    height: 60px;
+    line-height: 60px;
   }
 
   .key {
-    font-size: 2rem;
-    width: 70px;
-    height: 70px;
-    margin: 6px;
+    height: 60px;
+    width: 60px;
   }
 }
-@media (min-width: 2000px) {
-  header {
-    padding: 90px;
-  }
-  header h1 {
-    font-size: 7rem;
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
   }
 
   .calculator-display {
-    height: 90px;
+    height: 60px;
+    line-height: 60px;
   }
 
   .key {
-    font-size: 3rem;
-    width: 90px;
-    height: 90px;
-    margin: 7px;
+    height: 70px;
+    width: 70px;
   }
 }
 
