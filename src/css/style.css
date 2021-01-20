@@ -19,7 +19,7 @@ html {
 
 body {
   display: grid;
-  grid: 4fr 8fr/1fr;
+  grid: 4fr 8fr/12fr;
   font-family: "Lato", sans-serif;
   color: #171717;
 }

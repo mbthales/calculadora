@@ -21,20 +21,20 @@ body {
   height: 100%;
 }
 
-html{
+html {
   font-size: 20px;
 }
 
-body{
+body {
   display: grid;
-  grid: 4fr 8fr / 1fr;
+  grid: 4fr 8fr / 12fr;
 
   font-family: $font;
   color: $terciary-color;
 }
 
 header,
-main{
+main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,22 +49,22 @@ main {
 }
 
 .calculator-display,
-.key{
+.key {
   border-radius: 3px;
 }
 
-.calculator-display{
+.calculator-display {
   height: 50px;
   background-color: $primary-color;
   margin-bottom: 30px;
   line-height: 50px;
 }
 
-.row{
+.row { 
   margin-bottom: 10px;
 }
 
-.key{
+.key {
   height: 50px;
   width: 50px;
   background-color: $primary-color;
@@ -83,7 +83,7 @@ main {
   }
 }
 
-.sr-only{
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -92,32 +92,32 @@ main {
 }
 
 @media (min-width: 768px){
-  html{
+  html {
     font-size: 19px;
   }
 
-  .calculator-display{
+  .calculator-display {
     height: 60px;
     line-height: 60px;
   }
 
-  .key{
+  .key {
     height: 60px;
     width: 60px;
   }
 }
 
 @media (min-width: 1024px){
-  html{
+  html {
     font-size: 18px;
   }
 
-  .calculator-display{
+  .calculator-display {
     height: 60px;
     line-height: 60px;
   }
 
-  .key{
+  .key {
     height: 70px;
     width: 70px;
   }
