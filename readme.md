@@ -2,10 +2,10 @@
 A calculator build with JavaScript focusing in accessibility.
 
 ## Usage
-Download or clone the repo and open the HTML file in your browser or just click in this [link](https://mbthales.github.io/calculator/). Simultaneously, use any screen reader while use the aplication.
+Download or clone this repo and open the HTML file in your browser or just click in this [link](https://mbthales.github.io/calculator/). Simultaneously, use any screen reader while use the aplication.
 
-## Tech
-The following tools were used in the construction of the project.
+## Tech/Tools
+The following tech/tools were used in the construction of the project.
 - JavaScript
 - HTML
 - CSS
