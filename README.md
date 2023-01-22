@@ -12,5 +12,5 @@ Uma calculadora matemática focada em acessibilidade.
 ## Feito Com <a name="build_with">
 - JavaScript
 - HTML
-- CSS
+- SASS
 
