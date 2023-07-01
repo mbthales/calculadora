@@ -2,7 +2,7 @@
 
 $primary-color: #c49991;
 $secondary-color: #279af1;
-$terciary-color: #171717;
+$tertiary-color: #171717;
 
 $font: 'Lato', sans-serif;
 
@@ -30,7 +30,7 @@ body {
 	grid: 4fr 8fr / 12fr;
 
 	font-family: $font;
-	color: $terciary-color;
+	color: $tertiary-color;
 }
 
 header,
