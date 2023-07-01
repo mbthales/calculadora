@@ -1,90 +1,101 @@
-const calculatorKeys = document.querySelector("[data-js=calculator-keys]");
-const calculatorDisplay = document.querySelector(
-  "[data-js=calculator-display]"
-);
+function calculator() {
+  const keysEl = <HTMLElement>(
+    document.querySelector("[data-js=calculator-keys]")
+  );
+  const displayEl = <HTMLElement>(
+    document.querySelector("[data-js=calculator-display]")
+  );
 
-let calculatorOperation = [];
+  let operation: string[] = [];
 
-const startCalculator = (key) => {
-  const checkIfKeyIsSpecialOperator =
-    key === "=" || key === "C" || key === "CE";
+  function start(key: string) {
+    const keyIsSpecialOperator = key === "=" || key === "C" || key === "CE";
 
-  if (checkIfKeyIsSpecialOperator) {
-    calculatorSpecialOperators[key]();
-  } else {
-    putInfoInCalculatorOperation(key);
-    showInfoInCalculatorDisplay(key);
+    if (keyIsSpecialOperator) {
+      handleSpecialOperators()[key]();
+    } else {
+      newOperation(key);
+      displayOperation(key);
+      console.log(operation);
+    }
   }
-};
 
-const calculatorSpecialOperators = {
-  "=": () => {
-    const operation = calculatorOperation.join("");
-    const operationResult = eval(operation).toString();
+  function handleSpecialOperators() {
+    return {
+      "=": () => {
+        const op = operation.join("");
+        const operationResult = eval(op).toString();
 
-    clearOperation("all");
-    putInfoInCalculatorOperation(operationResult);
-    showInfoInCalculatorDisplay(operationResult);
-    readTheOperationResult(operationResult);
-  },
-  C: () => {
-    clearOperation("all");
-  },
-  CE: () => {
-    clearOperation("lastInfo");
-  },
-};
-
-const clearOperation = (allOrLastInfo) => {
-  calculatorDisplay.textContent = "";
-
-  if (allOrLastInfo === "all") {
-    calculatorOperation = [];
-  } else if (allOrLastInfo === "lastInfo") {
-    calculatorOperation.pop();
-
-    const operationWithLastInputRemoved = calculatorOperation
-      .map((operator) => {
-        if (operator === "*") {
-          return "x";
-        } else if (operator === "/") {
-          return "÷";
-        } else return operator;
-      })
-      .join("");
-
-    showInfoInCalculatorDisplay(operationWithLastInputRemoved);
+        clearOperation("all");
+        newOperation(operationResult);
+        displayOperation(operationResult);
+        readResult(operationResult);
+      },
+      C: () => {
+        clearOperation("all");
+      },
+      CE: () => {
+        clearOperation("lastInfo");
+      },
+    };
   }
-};
 
-const putInfoInCalculatorOperation = (info) => {
-  if (info === "x") {
-    calculatorOperation.push("*");
-  } else if (info === "÷") {
-    calculatorOperation.push("/");
-  } else {
-    calculatorOperation.push(info);
+  function newOperation(op: string) {
+    if (op === "x") {
+      operation.push("*");
+    } else if (op === "÷") {
+      operation.push("/");
+    } else {
+      operation.push(op);
+    }
   }
-};
 
-const showInfoInCalculatorDisplay = (info) =>
-  (calculatorDisplay.textContent += info);
+  function clearOperation(allOrLastOp: string) {
+    displayEl.textContent = "";
 
-const readTheOperationResult = (result) => {
-  const container = document.querySelector("[data-js=screen-read-only]");
+    if (allOrLastOp === "all") {
+      operation = [];
+    } else if (allOrLastOp === "lastInfo") {
+      operation.pop();
 
-  setTimeout(() => {
-    container.textContent = `Result is ${result}`;
-  }, 100);
+      const operationWithoutLastInput = operation
+        .map((op) => {
+          if (op === "*") {
+            return "x";
+          } else if (op === "/") {
+            return "÷";
+          } else return op;
+        })
+        .join("");
 
-  setTimeout(() => {
-    container.textContent = "";
-  }, 1000);
-};
+      displayOperation(operationWithoutLastInput);
+    }
+  }
 
-calculatorKeys.addEventListener("click", (e) => {
-  const key = e.target;
-  const keyValue = key.textContent;
+  function displayOperation(op: string) {
+    displayEl.textContent += op;
+  }
 
-  if (key.getAttribute("data-js") === "key") startCalculator(keyValue);
-});
+  function readResult(result: string) {
+    const screenReaderEl = <HTMLElement>(
+      document.querySelector("[data-js=screen-read-only]")
+    );
+
+    setTimeout(() => {
+      screenReaderEl.textContent = `Result is ${result}`;
+    }, 100);
+
+    setTimeout(() => {
+      screenReaderEl.textContent = "";
+    }, 1000);
+  }
+
+  keysEl.addEventListener("click", (e) => {
+    const keyEl = <HTMLElement>e.target;
+    const key = <string>keyEl.textContent;
+
+    if (keyEl.getAttribute("data-js") === "key") start(key.trim());
+  });
+}
+
+calculator();
